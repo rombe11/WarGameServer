@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cacheNoStore = require('./middlewares/cacheNoStore');
 const usersRouter = require('./routes/users');
 const gamesRouter = require('./routes/games');
+const ratingsRouter = require('./routes/ratings');
 const gamesMovesRouter = require('./routes/gamesMoves');
 
 
@@ -21,6 +22,7 @@ connectDB();
 app.use('/api', usersRouter);
 app.use('/api', gamesRouter);
 app.use('/api', gamesMovesRouter);
+app.use('/api', ratingsRouter);
 
 
 app.use((err, req, res, next) => {

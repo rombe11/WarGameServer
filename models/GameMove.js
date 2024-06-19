@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const gameMoveSchema = new mongoose.Schema({
   game: {
     type: mongoose.Schema.Types.ObjectId, 
+    ref:"Game",
     required: true,
   },
   moveNumber: {
@@ -14,16 +15,16 @@ const gameMoveSchema = new mongoose.Schema({
     required: true,
   },
   playerCard: {
-    type: Number,
+    type: String,
     required: true,
   },
   computerCard: {
-    type: Number,
+    type: String,
     required: true,
   }
 }, {
-});
+}, { collection: 'moves' });
 
-const GameMove = mongoose.model('GameMove', gameMoveSchema);
+const GameMove = mongoose.model('Moves', gameMoveSchema);
 
 module.exports = GameMove;

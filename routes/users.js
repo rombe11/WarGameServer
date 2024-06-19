@@ -2,19 +2,35 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/users');
 
-// Route for getting all users
+//getting all users
 router.get('/users', userController.getAllUsers);
 
-// Route for getting a user by username
+//getting a user by username
 router.get('/users/:username', userController.getUserByUsername);
 
-// Route for updating a user
+//updating a user
 router.put('/users/:username', userController.updateUser);
 
-// Route for adding a new user
+//gain 1 cup
+router.put('/users/cup/:username', userController.gainCup);
+
+//adding a new user
 router.post('/users', userController.addUser);
 
-// Route for checking if a user exists
+//if a user exists
 router.get('/users/:username/exist', userController.isUserExist);
+
+//country with max amount of players
+router.get('/users/max/country', userController.getCountryWithMaxUsers);
+
+//max losses player
+router.get('/users/max/losses', userController.getUserWithMaxLosses);
+
+//max wins player
+router.get('/users/max/wins', userController.getPlayerWithMaxWins);
+
+//user's stats
+router.get('/users/:username/stats', userController.getUserGameStats);
+
 
 module.exports = router;

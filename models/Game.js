@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
-const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const gameSchema = new mongoose.Schema({
-  winnerUsername: {
+  username: {
     type: String,
+    required: true,
   },
-}, {
+  won: {
+    type: Boolean,
+    default: false,
+  },
+ 
 });
-
 
 const Game = mongoose.model('Game', gameSchema);
 
